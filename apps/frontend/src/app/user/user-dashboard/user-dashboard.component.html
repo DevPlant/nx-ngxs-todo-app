@@ -1,0 +1,19 @@
+<div class="grid-container">
+  <mat-card class="dashboard-card">
+    <mat-card-header>
+      <mat-card-title>
+        My Todos
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="dashboard-card-content">
+      <mat-list>
+        <mat-list-item *ngFor="let todo of todos$ |async">
+          <h4 mat-line><strong>{{todo.title}} - {{ todo.solved ? ' (Solved) ' :''}}</strong></h4>
+          <p mat-line> {{todo.description}} </p>
+
+          <button mat-button color="accent" (click)="solve(todo.id)" *ngIf="!todo.solved">Mark as Solved</button>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</div>
